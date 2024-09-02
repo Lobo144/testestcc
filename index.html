@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal de Edição de Documentos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+</head>
+<body>
+    <!-- Botão para abrir o modal -->
+    <button id="openModalBtn">Editar Documento</button>
+
+    <!-- O Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="h2">Editar Documento</h2>
+            <p class="p" id="documentTitleDisplay">Documento: <span id="documentName">Nenhum</span></p>
+            <form class="Form" id="editForm">
+                <label class="title" for="docTitle">Título:</label>
+                <input type="text" id="docTitle" name="docTitle" required>
+
+                <label class="title" for="docContent">Conteúdo:</label>
+                <textarea id="docContent" name="docContent" rows="4" required></textarea>
+
+                <label class="title" for="userEmail">Seu Email:</label>
+                <input type="email" id="userEmail" name="userEmail" required>
+
+                <label class="title" for="validade"> VALIDADE ALTERADA</label>
+                <input type="date">
+
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    
+
+
+    <script>
+        // Obtém o modal
+const modal = document.getElementById("editModal");
+
+// Obtém o botão que abre o modal
+const openModalBtn = document.getElementById("openModalBtn");
+
+// Obtém o <span> que fecha o modal
+const closeModalSpan = document.querySelector(".close");
+
+// Definições para o nome do documento e email
+const documentNameElement = document.getElementById("documentName");
+const docTitleInput = document.getElementById("docTitle");
+const docContentTextarea = document.getElementById("docContent");
+const userEmailInput = document.getElementById("userEmail");
+
+// Simulação de dados do documento
+const documentData = {
+    name: "Documento Teste",
+    title: "Título do Documento",
+    content: "Conteúdo do Documento",
+    userEmail: "usuario@example.com"
+};
+
+// Quando o usuário clica no botão, abre o modal
+openModalBtn.onclick = function() {
+    // Preenche o modal com os dados do documento
+    documentNameElement.textContent = documentData.name;
+    docTitleInput.value = documentData.title;
+    docContentTextarea.value = documentData.content;
+    userEmailInput.value = documentData.userEmail;
+
+    modal.style.display = "block";
+}
+
+// Quando o usuário clica no <span> (x), fecha o modal
+closeModalSpan.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Quando o usuário clica fora do conteúdo do modal, fecha o modal
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Adiciona um evento de submit ao formulário
+document.getElementById("editForm").onsubmit = function(event) {
+    event.preventDefault(); // Evita o comportamento padrão de envio do formulário
+
+    // Obtém os valores dos campos do formulário
+    const title = docTitleInput.value;
+    const content = docContentTextarea.value;
+    const email = userEmailInput.value;
+
+    console.log("Título:", title);
+    console.log("Conteúdo:", content);
+    console.log("Email do Usuário:", email);
+
+    // Aqui você pode adicionar código para processar os dados do formulário
+
+    // Fecha o modal após salvar
+    modal.style.display = "none";
+}
+
+    </script>
+</body>
+</html>
