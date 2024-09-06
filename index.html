@@ -19,15 +19,15 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2 class="h2">Editar Documento</h2>
-            <p class="p" id="documentTitleDisplay">Documento: <span id="documentName">Nenhum</span></p>
+            <p class="p" id="documentTitleDisplay">Documento:  <span id="documentName">Nenhum</span></p>
             <form class="Form" id="editForm">
-                <label class="title-titulo" for="docTitle">Título:</label>
+                <label class="title-titulo" for="docTitle">Título</label>
                 <input class="label-txt" type="text" id="docTitle" name="docTitle" required>
 
-                <label class="title-conteudo" for="docContent">Conteúdo:</label>
+                <label class="title-conteudo" for="docContent">Conteúdo</label>
                 <textarea class="label-txt" id="docContent" name="docContent" rows="4" required></textarea>
 
-                <label class="title-email" for="userEmail">Seu Email:</label>
+                <label class="title-email" for="userEmail">Seu Email</label>
                 <input class="label-txt" type="email" id="userEmail" name="userEmail" required>
 
                 <label class="title-validade" for="validade"> VALIDADE ALTERADA</label>
@@ -61,7 +61,7 @@ const userEmailInput = document.getElementById("userEmail");
 
 // Simulação de dados do documento
 const documentData = {
-    name: "Documento Teste",
+    name: " Documento de teste",
     title: "Título do Documento",
     content: "Conteúdo do Documento",
     userEmail: "usuario@example.com"
